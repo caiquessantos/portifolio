@@ -1,0 +1,28 @@
+export const HERO_CONTENT = {
+  pt: {
+    badge: "Disponível para oportunidades FullStack - BackEnd",
+    name: "Caíque Santos Santana",
+    role: "Desenvolvedor FullStack",
+    bioStart: "Construo backends sólidos em ",
+    backendStack: "Java, SpringBoot, Spring e Hibernate",
+    bioMiddle: " aliados a interfaces leves em ",
+    frontendStack: "React, Javascript e TypeScript",
+    bioEnd: ", com dinamicidade e adaptável ao celular.",
+    ctaStart: "Você pode conhecer um pouco mais sobre mim ",
+    ctaButton: "aqui",
+    ctaEnd: " ou descer para ver meus projetos.",
+  },
+  en: {
+    badge: "Open to FullStack - BackEnd opportunities",
+    name: "Caíque Santos Santana",
+    role: "FullStack Developer",
+    bioStart: "I build solid backends in ",
+    backendStack: "Java, SpringBoot, Spring, and Hibernate",
+    bioMiddle: " paired with lightweight interfaces in ",
+    frontendStack: "React, JavaScript, and TypeScript",
+    bioEnd: ", featuring dynamic and mobile-friendly design.",
+    ctaStart: "You can learn a bit more about me ",
+    ctaButton: "here",
+    ctaEnd: " or scroll down to see my projects.",
+  },
+};

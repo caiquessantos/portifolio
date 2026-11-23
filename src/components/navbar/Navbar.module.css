@@ -1,0 +1,152 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  background-color: #fffdf9;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.topBar {
+  width: 100%;
+  background-color: #14121a;
+  border-bottom: 1px solid #363144;
+  color: #f7f4fc;
+  padding: clamp(5px, 0.8vw, 8px) clamp(8px, 2vw, 24px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.brandGroup {
+  display: flex;
+  align-items: center;
+  gap: clamp(5px, 0.8vw, 8px);
+}
+
+.brandBadge {
+  width: clamp(18px, 2.2vw, 22px);
+  height: clamp(18px, 2.2vw, 22px);
+  border-radius: 4px;
+  background-color: #b84a32;
+  color: #ffffff;
+  font-family: "Silkscreen", monospace;
+  letter-spacing: -0.02em;
+  font-size: clamp(9px, 1.2vw, 11px);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brandName {
+  font-weight: 800;
+  font-size: clamp(12px, calc(10.5px + 0.35vw), 15px);
+  letter-spacing: -0.02em;
+  color: #f7f4fc;
+}
+
+.paletteGroup {
+  display: flex;
+  align-items: center;
+  gap: clamp(3px, 0.8vw, 6px);
+}
+
+.palBtn {
+  font-family: "JetBrains Mono", monospace;
+  font-size: clamp(9.5px, calc(8.5px + 0.3vw), 12px);
+  font-weight: 500;
+  padding: clamp(3px, 0.5vw, 5px) clamp(6px, 1vw, 10px);
+  border-radius: 5px;
+  border: none;
+  background-color: #262230;
+  color: #f7f4fc;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.palBtn:hover {
+  background-color: #363144;
+}
+
+.palBtnActive {
+  background-color: #f08b73;
+  color: #14121a;
+  font-weight: 700;
+}
+
+.palBtnActive:hover {
+  background-color: #f08b73;
+}
+
+.palDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.navContainer {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: clamp(6px, 0.8vw, 10px) clamp(6px, 2vw, 24px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(3px, 1vw, 14px);
+}
+
+.navBtn {
+  padding: clamp(7px, 0.8vw, 10px) clamp(7px, 1.6vw, 22px);
+  border-radius: clamp(6px, 1vw, 10px);
+  font-family: inherit;
+  font-size: clamp(11.5px, calc(10px + 0.45vw), 16px);
+  font-weight: 700;
+  text-align: center;
+  background-color: transparent;
+  color: #111111;
+  border: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.navBtn:hover {
+  background-color: #ece2d2;
+}
+
+.navBtnActive {
+  background-color: #b84a32;
+  color: #ffffff;
+  border-color: #111111;
+}
+
+.navBtnActive:hover {
+  background-color: #b84a32;
+}
+
+.progressTrack {
+  width: 100%;
+  height: clamp(6px, 1.2vw, 10px);
+  background-color: #ece2d2;
+  border-top: 2px solid #111111;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  width: 0%;
+  background-color: #b84a32;
+}

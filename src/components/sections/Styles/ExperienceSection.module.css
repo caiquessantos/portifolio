@@ -1,0 +1,227 @@
+.header {
+  width: 100%;
+  margin-bottom: clamp(1rem, 2vw, 1.375rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(0.45rem, 1vw, 0.65rem);
+}
+
+.stepBadge {
+  font-family: "Silkscreen", monospace;
+  letter-spacing: -0.02em;
+  font-size: clamp(0.58rem, calc(0.5rem + 0.25vw), 0.7rem);
+  font-weight: 700;
+  padding: 0.35em 0.75em;
+  border-radius: 0.45rem;
+  border: 0.125rem solid var(--border-ink);
+  background-color: var(--bg-card);
+  color: var(--ink-main);
+}
+
+.title {
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(1.35rem, calc(1.05rem + 1.2vw), 2rem);
+  line-height: 1.2;
+  color: var(--ink-main);
+}
+
+.subtitle {
+  margin: 0;
+  font-size: clamp(0.875rem, calc(0.8rem + 0.3vw), 1.02rem);
+  line-height: 1.6;
+  color: var(--ink-body);
+}
+
+.list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2vw, 1.375rem);
+}
+
+.card {
+  width: 100%;
+  background-color: var(--bg-card);
+  border: 0.125rem solid var(--border-ink);
+  box-shadow: 0.25rem 0.25rem 0 var(--shadow-main);
+  border-radius: 1rem;
+  padding: clamp(1.1rem, 2.4vw, 1.65rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.875rem, 1.8vw, 1.2rem);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cardHighlighted {
+  border-color: var(--primary);
+  box-shadow: 0.375rem 0.375rem 0 var(--primary);
+  transform: translateY(-0.15rem);
+}
+
+.cardDimmed {
+  opacity: 0.22;
+}
+
+.topRow {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.45rem, 0.9vw, 0.65rem);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(0.4rem, 1vw, 0.65rem);
+}
+
+.companyBadge {
+  font-family: "Silkscreen", monospace;
+  font-size: clamp(0.6rem, calc(0.52rem + 0.25vw), 0.72rem);
+  font-weight: 700;
+  padding: 0.35em 0.75em;
+  border-radius: 0.45rem;
+  border: 0.125rem solid var(--border-ink);
+  background-color: var(--primary);
+  color: var(--pill-text);
+}
+
+.period {
+  font-family: "JetBrains Mono", monospace;
+  font-size: clamp(0.72rem, calc(0.66rem + 0.25vw), 0.85rem);
+  font-weight: 700;
+  color: var(--ink-muted);
+}
+
+.infoBadge {
+  font-family: "JetBrains Mono", monospace;
+  font-size: clamp(0.66rem, calc(0.6rem + 0.22vw), 0.78rem);
+  font-weight: 700;
+  padding: 0.25em 0.65em;
+  border-radius: 0.45rem;
+  border: 0.125rem solid var(--border-ink);
+  background-color: var(--bg-surface);
+  color: var(--ink-main);
+}
+
+.infoBadgeActive {
+  background-color: var(--primary);
+  color: var(--pill-text);
+}
+
+.role {
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(1.1rem, calc(0.95rem + 0.6vw), 1.4rem);
+  line-height: 1.25;
+  color: var(--ink-main);
+}
+
+.summary {
+  margin: 0;
+  font-size: clamp(0.875rem, calc(0.8rem + 0.3vw), 1rem);
+  line-height: 1.65;
+  color: var(--ink-body);
+}
+
+.metricsGrid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11.5rem), 1fr));
+  gap: clamp(0.5rem, 1.2vw, 0.75rem);
+}
+
+.metricBox {
+  padding: clamp(0.65rem, 1.4vw, 0.875rem);
+  border-radius: 0.75rem;
+  border: 0.125rem solid var(--border-ink);
+  background-color: var(--bg-surface);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.metricValue {
+  font-family: "Silkscreen", monospace;
+  font-size: clamp(0.8rem, calc(0.72rem + 0.35vw), 1rem);
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.metricLabel {
+  font-family: "JetBrains Mono", monospace;
+  font-size: clamp(0.68rem, calc(0.62rem + 0.2vw), 0.78rem);
+  color: var(--ink-muted);
+}
+
+.bottomRow {
+  padding-top: clamp(0.65rem, 1.4vw, 0.9rem);
+  border-top: 0.125rem solid var(--bg-surface);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(0.75rem, 1.5vw, 1rem);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(0.35rem, 0.8vw, 0.5rem);
+}
+
+.tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: clamp(0.65rem, calc(0.58rem + 0.2vw), 0.75rem);
+  font-weight: 700;
+  padding: 0.25em 0.6em;
+  border-radius: 0.45rem;
+  border: 0.125rem solid var(--border-ink);
+  background-color: var(--bg-surface);
+  color: var(--ink-main);
+}
+
+.actionBtn {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  padding: clamp(0.55rem, 1.1vw, 0.7rem) clamp(0.9rem, 1.8vw, 1.15rem);
+  border-radius: 0.75rem;
+  border: 0.125rem solid var(--border-ink);
+  box-shadow: 0.1875rem 0.1875rem 0 var(--border-ink);
+  background-color: var(--bg-surface);
+  color: var(--ink-main);
+  font-family: inherit;
+  font-size: clamp(0.78rem, calc(0.72rem + 0.25vw), 0.875rem);
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    filter 0.15s ease;
+}
+
+.actionBtn:hover {
+  filter: brightness(0.96);
+}
+
+.actionBtn:active {
+  transform: translate(0.125rem, 0.125rem);
+  box-shadow: 0.0625rem 0.0625rem 0 var(--border-ink);
+}
+
+.arrow {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 800;
+  color: var(--primary);
+}

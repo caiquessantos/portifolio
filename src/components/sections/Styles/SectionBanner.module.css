@@ -1,0 +1,74 @@
+.banner {
+  width: 100%;
+  margin-top: clamp(2rem, 1vw, 1.375rem);
+  background-color: var(--bg-surface);
+  border: 0.125rem solid var(--border-ink);
+  box-shadow: 0.25rem 0.25rem 0 var(--shadow-alt);
+  border-radius: 1rem;
+  padding: clamp(1.1rem, 2.4vw, 1.65rem);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1rem, 2.2vw, 1.5rem);
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.textContent {
+  flex: 1 1 20rem;
+  max-width: 38rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(0.45rem, 1vw, 0.65rem);
+}
+
+.stepBadge {
+  font-family: "Silkscreen", monospace;
+  letter-spacing: -0.02em;
+  font-size: clamp(0.58rem, calc(0.5rem + 0.25vw), 0.7rem);
+  font-weight: 700;
+  padding: 0.35em 0.75em;
+  border-radius: 0.45rem;
+  border: 0.1rem solid var(--border-ink);
+  background-color: var(--bg-card);
+  color: var(--ink-main);
+}
+
+.title {
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(1.35rem, calc(1.05rem + 1.2vw), 2rem);
+  line-height: 1.2;
+  color: var(--ink-main);
+}
+
+.subtitle {
+  margin: 0;
+  font-size: clamp(0.875rem, calc(0.8rem + 0.3vw), 1.02rem);
+  line-height: 1.6;
+  color: var(--ink-body);
+}
+
+.inlineCode {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  color: var(--ink-main);
+}
+
+.artSlot {
+  flex-shrink: 0;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.artSlot img {
+  display: block;
+  width: clamp(4.75rem, 8vw, 6.25rem);
+  height: auto;
+  image-rendering: pixelated;
+}

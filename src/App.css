@@ -1,38 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Silkscreen:wght@400;700&display=swap");
+
+:root {
+  /* Paleta Padrão: Papel Pastel */
+  --bg-base: #f7f1e8;
+  --bg-surface: #ece2d2;
+  --bg-card: #fffdf9;
+  --ink-main: #111111;
+  --ink-body: #111111;
+  --ink-muted: #4a4352;
+  --primary: #b84a32;
+  --secondary: #3e6b48;
+  --accent: #2f5d8a;
+  --border-ink: #111111;
+  --shadow-main: #b84a32;
+  --shadow-alt: #2f5d8a;
+  --dot-grid: rgba(17, 17, 17, 0.08);
+  --pill-text: #ffffff;
+}
+
+[data-theme="menta"] {
+  --bg-base: #eff5f4;
+  --bg-surface: #dce9e6;
+  --bg-card: #ffffff;
+  --ink-main: #0f1415;
+  --ink-body: #0f1415;
+  --ink-muted: #3d5255;
+  --primary: #276b60;
+  --secondary: #9a6715;
+  --accent: #2f5d8a;
+  --border-ink: #0f1415;
+  --shadow-main: #276b60;
+  --shadow-alt: #9a6715;
+  --dot-grid: rgba(15, 20, 21, 0.08);
+  --pill-text: #ffffff;
+}
+
+[data-theme="noite"] {
+  --bg-base: #14121a;
+  --bg-surface: #1e1b26;
+  --bg-card: #262230;
+  --ink-main: #f8f7fa;
+  --ink-body: #f8f7fa;
+  --ink-muted: #c4bdd1;
+  --primary: #f08b73;
+  --secondary: #b5a8e0;
+  --accent: #76c7b7;
+  --border-ink: #574f6b;
+  --shadow-main: #b5a8e0;
+  --shadow-alt: #f08b73;
+  --dot-grid: rgba(248, 247, 250, 0.06);
+  --pill-text: #14121a;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: var(--bg-base);
+  color: var(--ink-main);
+  background-image: radial-gradient(var(--dot-grid) 1px, transparent 1px);
+  background-size: 18px 18px;
+  font-family:
+    "Plus Jakarta Sans",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
 .App {
-  text-align: center;
+  padding-top: clamp(106px, 12vw, 122px);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.font-pixel {
+  font-family: "Silkscreen", monospace;
+  letter-spacing: -0.02em;
 }
