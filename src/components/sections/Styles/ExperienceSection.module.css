@@ -15,8 +15,8 @@
   padding: 0.35em 0.75em;
   border-radius: 0.45rem;
   border: 0.125rem solid var(--border-ink);
-  background-color: var(--bg-card);
-  color: var(--ink-main);
+  background-color: var(--ink-main);
+  color: var(--bg-card);
 }
 
 .title {
@@ -144,6 +144,7 @@
   padding: clamp(0.7rem, 1.4vw, 0.9rem);
   border-radius: 0.75rem;
   border: 0.125rem solid var(--border-ink);
+  box-shadow: 0.125rem 0.125rem 0 var(--border-ink);
   background-color: var(--bg-surface);
   display: flex;
   flex-direction: column;
@@ -161,7 +162,8 @@
   font-family: "JetBrains Mono", monospace;
   font-size: clamp(0.82rem, calc(0.76rem + 0.2vw), 0.94rem);
   font-weight: 600;
-  color: var(--ink-muted);
+  line-height: 1.45;
+  color: var(--ink-main);
 }
 
 .bottomRow {
@@ -202,8 +204,8 @@
   border-radius: 0.75rem;
   border: 0.125rem solid var(--border-ink);
   box-shadow: 0.1875rem 0.1875rem 0 var(--border-ink);
-  background-color: var(--bg-surface);
-  color: var(--ink-main);
+  background-color: var(--primary);
+  color: var(--pill-text);
   font-family: inherit;
   font-size: clamp(0.9rem, calc(0.84rem + 0.22vw), 1rem);
   font-weight: 700;
@@ -212,11 +214,15 @@
   transition:
     transform 0.12s ease,
     box-shadow 0.12s ease,
-    filter 0.15s ease;
+    background-color 0.15s ease,
+    color 0.15s ease;
 }
 
 .actionBtn:hover {
-  filter: brightness(0.96);
+  transform: translate(-0.0625rem, -0.0625rem);
+  box-shadow: 0.25rem 0.25rem 0 var(--border-ink);
+  background-color: var(--ink-main);
+  color: var(--bg-card);
 }
 
 .actionBtn:active {
@@ -227,5 +233,12 @@
 .arrow {
   font-family: "JetBrains Mono", monospace;
   font-weight: 800;
-  color: var(--primary);
+  color: inherit;
+}
+
+@media (max-width: 640px) {
+  .actionBtn {
+    width: 100%;
+    margin-left: 0;
+  }
 }

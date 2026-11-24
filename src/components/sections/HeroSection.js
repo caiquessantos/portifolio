@@ -2,7 +2,7 @@ import React from "react";
 import "./Styles/Geral.css";
 import Style from "./Styles/HeroSection.module.css";
 import Contact from "./ContactsSection";
-import { HERO_CONTENT } from "../../data/Hero";
+import { HERO_CONTENT } from "../../data/HeroData";
 
 function HeroSection({ lang = "pt", children }) {
   const content = HERO_CONTENT[lang] || HERO_CONTENT.pt;

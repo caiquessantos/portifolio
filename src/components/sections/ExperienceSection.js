@@ -1,17 +1,32 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Styles/Geral.css";
 import Style from "./Styles/ExperienceSection.module.css";
-import { EXPERIENCES_BASE, EXPERIENCE_CONTENT } from "../../data/Experience";
+import {
+  EXPERIENCES_BASE,
+  EXPERIENCE_CONTENT,
+} from "../../data/ExperienceData";
 
 function ExperienceSection({
   lang = "pt",
   selectedTech = null,
   onOpenExperience,
 }) {
+  const navigate = useNavigate();
   const content = EXPERIENCE_CONTENT[lang] || EXPERIENCE_CONTENT.pt;
 
+  const handleOpenExperience = (slug) => {
+    if (onOpenExperience) {
+      onOpenExperience(slug);
+      return;
+    }
+    navigate(`/experiencia/${slug}`, {
+      state: { scrollTo: `exp-${slug}` },
+    });
+  };
+
   return (
-    <section id="Experiencia" className="container">
+    <section className="container">
       <div className={Style.list}>
         {EXPERIENCES_BASE.map((exp) => {
           const localized = content.items[exp.slug];
@@ -20,6 +35,7 @@ function ExperienceSection({
 
           return (
             <article
+              id={`exp-${exp.slug}`}
               key={exp.slug}
               className={`${Style.card} ${
                 isHighlighted ? Style.cardHighlighted : ""
@@ -65,7 +81,7 @@ function ExperienceSection({
 
                 <button
                   type="button"
-                  onClick={() => onOpenExperience?.(exp.slug)}
+                  onClick={() => handleOpenExperience(exp.slug)}
                   className={Style.actionBtn}
                 >
                   <span>{content.actionBtn}</span>

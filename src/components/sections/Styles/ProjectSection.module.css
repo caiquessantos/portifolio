@@ -17,8 +17,11 @@
 .grid {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
-  gap: clamp(1rem, 2vw, 1.375rem);
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, max(23rem, calc((100% - 3rem) / 3))), 1fr)
+  );
+  gap: clamp(1.1rem, 2vw, 1.5rem);
 }
 
 .card {
@@ -26,7 +29,7 @@
   border: 0.125rem solid var(--border-ink);
   box-shadow: 0.25rem 0.25rem 0 var(--shadow-main);
   border-radius: 1rem;
-  padding: clamp(1.1rem, 2.2vw, 1.5rem);
+  padding: clamp(1.15rem, 2.2vw, 1.6rem);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -78,8 +81,8 @@
   padding: 0.32em 0.65em;
   border-radius: 0.45rem;
   border: 0.125rem solid var(--border-ink);
-  background-color: var(--bg-surface);
-  color: var(--ink-main);
+  background-color: var(--ink-main);
+  color: var(--bg-card);
 }
 
 .originBadgeConfidential {
@@ -152,8 +155,8 @@
   border-radius: 0.75rem;
   border: 0.125rem solid var(--border-ink);
   box-shadow: 0.1875rem 0.1875rem 0 var(--border-ink);
-  background-color: var(--bg-surface);
-  color: var(--ink-main);
+  background-color: var(--primary);
+  color: var(--pill-text);
   font-family: inherit;
   font-size: clamp(0.9rem, calc(0.84rem + 0.22vw), 1rem);
   font-weight: 700;
@@ -165,11 +168,15 @@
   transition:
     transform 0.12s ease,
     box-shadow 0.12s ease,
-    filter 0.15s ease;
+    background-color 0.15s ease,
+    color 0.15s ease;
 }
 
 .actionBtn:hover {
-  filter: brightness(0.96);
+  transform: translate(-0.0625rem, -0.0625rem);
+  box-shadow: 0.25rem 0.25rem 0 var(--border-ink);
+  background-color: var(--ink-main);
+  color: var(--bg-card);
 }
 
 .actionBtn:active {
@@ -182,13 +189,14 @@
   border-style: dashed;
   box-shadow: none;
   background-color: var(--bg-base);
-  color: var(--ink-main);
+  color: var(--ink-muted);
   cursor: not-allowed;
 }
 
 .actionBtnLocked:hover,
 .actionBtnLocked:active {
-  filter: none;
+  background-color: var(--bg-base);
+  color: var(--ink-muted);
   transform: none;
   box-shadow: none;
 }
@@ -203,5 +211,5 @@
 .routeHint {
   font-family: "JetBrains Mono", monospace;
   font-weight: 800;
-  color: var(--primary);
+  color: inherit;
 }

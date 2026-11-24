@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import Style from "./Styles/Stack.module.css";
-import { STACK_GROUPS, CATEGORY_IDS, STACK_CONTENT } from "../../data/Stack";
+import {
+  STACK_GROUPS,
+  CATEGORY_IDS,
+  STACK_CONTENT,
+} from "../../data/StackData";
 
 function StackSection({
   lang = "pt",

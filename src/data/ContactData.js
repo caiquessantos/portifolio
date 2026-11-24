@@ -2,7 +2,7 @@ export const CONTACT_LINKS = [
   {
     id: "linkedin",
     label: "LinkedIn",
-    url: "https://www.linkedin.com/in/seu-usuario",
+    url: "https://www.linkedin.com/in/caiquessantana",
   },
   {
     id: "email",
@@ -11,7 +11,7 @@ export const CONTACT_LINKS = [
   {
     id: "github",
     label: "GitHub",
-    url: "https://github.com/seu-usuario",
+    url: "https://github.com/caiquessantos",
   },
   {
     id: "whatsapp",

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext";
 import { useLanguage } from "../../context/LanguageContext";
-import { NAVBAR_CONTENT, NAVBAR_LANGUAGES } from "../../data/Navbar";
+import { NAVBAR_CONTENT, NAVBAR_LANGUAGES } from "../../data/NavbarData";
 import styles from "./Navbar.module.css";
 
 function NavbarSection() {

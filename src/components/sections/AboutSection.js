@@ -1,7 +1,7 @@
 import React from "react";
 import Contacts from "./ContactsSection";
 import Style from "./Styles/AboutSection.module.css";
-import { ABOUT_CONTENT } from "../../data/About";
+import { ABOUT_CONTENT } from "../../data/AboutData";
 
 function AboutSection({ lang = "pt", spriteSlot = null }) {
   const content = ABOUT_CONTENT[lang] || ABOUT_CONTENT.pt;

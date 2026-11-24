@@ -1,6 +1,6 @@
 import { useState, useId } from "react";
 import Style from "./Styles/Contact.module.css";
-import { CONTACT_LINKS, CONTACT_CONTENT } from "../../data/Contact";
+import { CONTACT_LINKS, CONTACT_CONTENT } from "../../data/ContactData";
 
 function ContactsSection({ lang = "pt" }) {
   const [activeId, setActiveId] = useState(null);

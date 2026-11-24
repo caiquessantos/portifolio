@@ -2,19 +2,19 @@
 
 :root {
   /* Paleta Padrão: Papel Pastel */
-  --bg-base: #f7f1e8;
-  --bg-surface: #ece2d2;
+  --bg-base: #f5efe6;
+  --bg-surface: #e0d1b8;
   --bg-card: #fffdf9;
   --ink-main: #111111;
   --ink-body: #111111;
   --ink-muted: #4a4352;
-  --primary: #b84a32;
-  --secondary: #3e6b48;
-  --accent: #2f5d8a;
+  --primary: #a63019;
+  --secondary: #1e5e43;
+  --accent: #1f5388;
   --border-ink: #111111;
-  --shadow-main: #b84a32;
-  --shadow-alt: #2f5d8a;
-  --dot-grid: rgba(17, 17, 17, 0.08);
+  --shadow-main: #a63019;
+  --shadow-alt: #1f5388;
+  --dot-grid: rgba(17, 17, 17, 0.11);
   --pill-text: #ffffff;
 
   /* Tipografia fluida padrão */
@@ -25,53 +25,53 @@
 }
 
 [data-theme="menta"] {
-  --bg-base: #e3efec;
-  --bg-surface: #d1e3df;
+  --bg-base: #e2efec;
+  --bg-surface: #bdd6d0;
   --bg-card: #ffffff;
   --ink-main: #0f1415;
   --ink-body: #0f1415;
-  --ink-muted: #374c4f;
-  --primary: #276b60;
-  --secondary: #9a6715;
-  --accent: #2f5d8a;
+  --ink-muted: #34494c;
+  --primary: #165e53;
+  --secondary: #8f4b08;
+  --accent: #1f5388;
   --border-ink: #0f1415;
-  --shadow-main: #276b60;
-  --shadow-alt: #9a6715;
-  --dot-grid: rgba(15, 20, 21, 0.09);
+  --shadow-main: #165e53;
+  --shadow-alt: #8f4b08;
+  --dot-grid: rgba(15, 20, 21, 0.11);
   --pill-text: #ffffff;
 }
 
 [data-theme="noite"] {
-  --bg-base: #14121a;
-  --bg-surface: #1e1b26;
-  --bg-card: #262230;
+  --bg-base: #121017;
+  --bg-surface: #1b1824;
+  --bg-card: #272233;
   --ink-main: #f8f7fa;
   --ink-body: #f8f7fa;
-  --ink-muted: #c4bdd1;
+  --ink-muted: #c8c1d6;
   --primary: #f08b73;
   --secondary: #b5a8e0;
   --accent: #76c7b7;
-  --border-ink: #574f6b;
+  --border-ink: #9488b0;
   --shadow-main: #b5a8e0;
   --shadow-alt: #f08b73;
-  --dot-grid: rgba(248, 247, 250, 0.06);
-  --pill-text: #14121a;
+  --dot-grid: rgba(248, 247, 250, 0.07);
+  --pill-text: #121017;
 }
 
 [data-theme="lavanda"] {
-  --bg-base: #e7dff3;
-  --bg-surface: #d7cbe9;
-  --bg-card: #f5f0fc;
+  --bg-base: #e6ddf2;
+  --bg-surface: #c8b6e2;
+  --bg-card: #faf7fe;
   --ink-main: #1a1523;
   --ink-body: #1a1523;
-  --ink-muted: #4b3f5c;
-  --primary: #5e3a8c;
-  --secondary: #9c5244;
-  --accent: #2c6670;
+  --ink-muted: #463a57;
+  --primary: #532c87;
+  --secondary: #9c3d2a;
+  --accent: #1d5d68;
   --border-ink: #1a1523;
-  --shadow-main: #5e3a8c;
-  --shadow-alt: #9c5244;
-  --dot-grid: rgba(26, 21, 35, 0.09);
+  --shadow-main: #532c87;
+  --shadow-alt: #9c3d2a;
+  --dot-grid: rgba(26, 21, 35, 0.11);
   --pill-text: #ffffff;
 }
 
@@ -106,7 +106,7 @@ body {
 }
 
 .App {
-  padding-top: clamp(6.625rem, 12vw, 7.625rem);
+  padding-top: clamp(8.75rem, 15vw, 9.25rem);
 }
 
 .font-pixel {

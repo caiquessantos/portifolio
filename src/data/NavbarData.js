@@ -17,7 +17,7 @@ export const NAVBAR_CONTENT = {
       { id: "padrao", label: "Padrão", dot: "#B84A32" },
       { id: "menta", label: "Menta", dot: "#276B60" },
       { id: "lavanda", label: "Lavanda", dot: "#5E3A8C" },
-      { id: "noite", label: "Escuro", dot: "#F08B73" },
+      { id: "noite", label: "Escuro", dot: "#1B1824" },
     ],
   },
   en: {
@@ -33,7 +33,7 @@ export const NAVBAR_CONTENT = {
       { id: "padrao", label: "Default", dot: "#B84A32" },
       { id: "menta", label: "Mint", dot: "#276B60" },
       { id: "lavanda", label: "Lavender", dot: "#5E3A8C" },
-      { id: "noite", label: "Dark", dot: "#F08B73" },
+      { id: "noite", label: "Dark", dot: "#1B1824" },
     ],
   },
 };

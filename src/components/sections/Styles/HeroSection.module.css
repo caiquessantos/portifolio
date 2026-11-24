@@ -5,13 +5,10 @@
   align-items: center;
   justify-content: space-between;
   gap: clamp(1.25rem, 2.5vw, 2rem);
+  padding-top: 1.25rem;
+  padding-bottom: 3rem;
 }
 
-@media (max-width: 680px) {
-  .hero {
-    padding-top: 2.25rem;
-  }
-}
 .contentCol {
   flex: 1 1 22rem;
   width: 100%;
@@ -19,7 +16,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: clamp(0.875rem, 1.8vw, 1.375rem);
+  gap: clamp(1rem, 1.8vw, 1.375rem);
 }
 
 .heroWithArt .contentCol {
@@ -31,7 +28,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5em;
-  padding: clamp(0.3rem, 0.6vw, 0.45rem) clamp(0.65rem, 1.4vw, 1rem);
+  padding: clamp(0.35rem, 0.6vw, 0.45rem) clamp(0.7rem, 1.4vw, 1rem);
   border-radius: 99em;
   border: 0.125rem solid var(--border-ink);
   background-color: var(--bg-surface);
@@ -51,22 +48,30 @@
 
 .title {
   margin: 0;
-  width: 100%;
+  padding: clamp(0.65rem, 1.4vw, 1rem) clamp(0.85rem, 1.8vw, 1.25rem);
+  border-radius: 0.5rem;
+  border: 0.125rem solid var(--border-ink);
+  background-color: var(--primary);
+  color: var(--pill-text);
   font-weight: 800;
-  font-size: clamp(1.65rem, calc(1.2rem + 2.1vw), 3.1rem);
-  line-height: 1.12;
+  font-size: clamp(1.5rem, calc(1.1rem + 1.8vw), 2.75rem);
+  line-height: 1.32;
   letter-spacing: -0.02em;
-  color: var(--ink-main);
 }
 
 .role {
-  display: block;
-  margin-top: 0.15em;
-  color: var(--primary);
+  display: inline;
+  padding: 0.08em 0.35em;
+  border-radius: 0.28em;
+  background-color: var(--ink-main);
+  color: var(--bg-surface);
+  font-size: 0.9em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .bio {
-  margin: 0;
+  margin: clamp(0.5rem, 1.1vw, 0.85rem) 0;
   width: 100%;
   font-size: clamp(0.95rem, calc(0.85rem + 0.38vw), 1.15rem);
   line-height: var(--text-line-height);
@@ -79,35 +84,50 @@
 }
 
 .ctaText {
-  margin: clamp(0.25rem, 0.8vw, 0.5rem) 0 0;
+  margin: clamp(0.35rem, 0.9vw, 0.65rem) 0 0;
   width: 100%;
-  font-size: clamp(0.92rem, calc(0.82rem + 0.35vw), 1.08rem);
-  line-height: var(--text-line-height);
-  font-weight: var(--text-body-weight);
-  color: var(--ink-body);
+  padding: clamp(0.75rem, 1.4vw, 1rem) clamp(0.95rem, 1.8vw, 1.25rem);
+  border: 0.125rem dashed var(--border-ink);
+  border-left: 0.35rem solid var(--primary);
+  border-radius: 0.65rem;
+  background-color: var(--bg-surface);
+  font-family: "JetBrains Mono", monospace;
+  font-size: clamp(0.82rem, calc(0.76rem + 0.28vw), 0.96rem);
+  line-height: 1.55;
+  font-weight: 700;
+  color: var(--ink-main);
 }
 
 .inlineBtn {
-  display: inline;
-  padding: 0.05em 0.25em;
-  margin: 0 0.05em;
-  border: none;
-  border-bottom: 0.14em solid var(--primary);
-  border-radius: 0.25em;
-  background-color: transparent;
-  color: var(--primary);
+  display: inline-block;
+  padding: 0.1em 0.45em;
+  margin: 0 0.12em;
+  border: 0.125rem solid var(--border-ink);
+  border-radius: 0.4em;
+  box-shadow: 0.125rem 0.125rem 0 var(--border-ink);
+  background-color: var(--primary);
+  color: var(--pill-text);
   font-family: inherit;
   font-size: inherit;
   font-weight: 800;
   cursor: pointer;
   transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
     background-color 0.15s ease,
     color 0.15s ease;
 }
 
 .inlineBtn:hover {
-  background-color: var(--primary);
-  color: var(--pill-text);
+  transform: translate(-0.05rem, -0.05rem);
+  box-shadow: 0.1875rem 0.1875rem 0 var(--border-ink);
+  background-color: var(--ink-main);
+  color: var(--bg-card);
+}
+
+.inlineBtn:active {
+  transform: translate(0.1rem, 0.1rem);
+  box-shadow: 0.04rem 0.04rem 0 var(--border-ink);
 }
 
 .artSlot {

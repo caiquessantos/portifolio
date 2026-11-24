@@ -15,7 +15,7 @@ export const HERO_CONTENT = {
   en: {
     badge: "Open to FullStack - BackEnd opportunities",
     name: "Caíque Santos Santana",
-    role: "FullStack Developer",
+    role: "FullStack Developer - BackEnd",
     bioStart: "I build solid backends in ",
     backendStack: "Java, SpringBoot, Spring, and Hibernate",
     bioMiddle: " paired with lightweight interfaces in ",

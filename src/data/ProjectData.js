@@ -79,6 +79,31 @@ export const PROJECTS_BASE = [
     techIds: ["java", "kotlin", "sql", "sqlite", "jdbc", "dto", "dao", "git"],
   },
   {
+    slug: "kiqblog",
+    category: "pessoal",
+    confidential: false,
+    liveUrl: "https://kiqblog.vercel.app",
+    repoUrl: "https://github.com/caiquessantos/kiqblog",
+    highlights: [
+      "React",
+      "JavaScript",
+      "Firebase",
+      "Context API",
+      "Custom Hooks",
+      "React Router",
+      "CSS",
+    ],
+    techIds: [
+      "react",
+      "reactjs",
+      "javascript",
+      "firebase",
+      "html",
+      "css",
+      "git",
+    ],
+  },
+  {
     slug: "gerenciador-de-tarefas-angular",
     category: "pessoal",
     confidential: false,
@@ -193,6 +218,13 @@ export const PROJECTS_CONTENT = {
         shortDesc:
           "Aplicativo Android para organização de campeonatos (formato liga), times, jogadores, partidas e estatísticas. Atuei no backend com Java/Kotlin e persistência em SQLite usando JDBC puro — sem framework ORM — aplicando os padrões DTO e DAO.",
       },
+      kiqblog: {
+        role: "Frontend Developer",
+        period: "Projeto Pessoal",
+        title: "KiqBlog — Miniblog com React & Firebase",
+        shortDesc:
+          "Aplicação web de miniblog desenvolvida em React, JavaScript, HTML e CSS com autenticação e persistência no Firebase (Authentication e Firestore) e deploy na Vercel. Estruturada com foco em componentização avançada e reaproveitamento de código — incluindo componentes genéricos reutilizados em toda a aplicação com comportamentos distintos, gerenciamento de estado global via Context API, rotas protegidas com React Router DOM e Hooks customizados para CRUD, modais e busca por tags.",
+      },
       "gerenciador-de-tarefas-angular": {
         role: "Frontend Developer",
         period: "Projeto Pessoal",
@@ -238,7 +270,7 @@ export const PROJECTS_CONTENT = {
         period: "2025.2",
         title: "Ceasa Digital — B2B Wholesale Platform",
         shortDesc:
-          "Java and Spring Boot backend (modular layered architecture) for CEASA's commercial digitalization in partnership with SESI, driven by a fair-queue rotation model to balance sales across producers. Implemented the checkout flow (cart-to-order conversion), user authorization checks restricting order access, DTOs, FetchType.LAZY query tuning, PostgreSQL indexing, Flyway migrations, and Docker setup. Following validation, the project secured ~R$ 1M for servers, infrastructure, and platform continuity.",
+          "Java and Spring Boot backend (modular layered architecture) for CEASA's commercial digitalization in partnership with UESB, driven by a fair-queue rotation model to balance sales across producers. Implemented the checkout flow (cart-to-order conversion), user authorization checks restricting order access, DTOs, FetchType.LAZY query tuning, PostgreSQL indexing, Flyway migrations, and Docker setup. Following validation, the project secured ~R$ 1M for servers, infrastructure, and platform continuity.",
       },
       "app-colorir-offline": {
         role: "Full Stack & Mobile Developer",
@@ -253,6 +285,13 @@ export const PROJECTS_CONTENT = {
         title: "Sportify — Sports Championship Management",
         shortDesc:
           "Android app for managing league championships, teams, players, matches, and statistics. Worked on the backend with Java/Kotlin and SQLite using raw JDBC — without an ORM framework — applying DTO and DAO patterns.",
+      },
+      kiqblog: {
+        role: "Frontend Developer",
+        period: "Personal Project",
+        title: "KiqBlog — Miniblog with React & Firebase",
+        shortDesc:
+          "Miniblog web application built with React, JavaScript, HTML, and CSS featuring Firebase Authentication and Firestore persistence, deployed on Vercel. Engineered around advanced componentization and code reuse—including generic components reused across the entire app with distinct behaviors alongside global state management via Context API, protected routes with React Router DOM, and custom Hooks for CRUD operations, modals, and tag search.",
       },
       "gerenciador-de-tarefas-angular": {
         role: "Frontend Developer",

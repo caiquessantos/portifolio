@@ -1,6 +1,7 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Style from "./Styles/ProjectSection.module.css";
-import { PROJECTS_BASE, PROJECTS_CONTENT } from "../../data/Project";
+import { PROJECTS_BASE, PROJECTS_CONTENT } from "../../data/ProjectData";
 
 function LockIcon({ className }) {
   return (
@@ -27,12 +28,24 @@ function ProjectSection({
   selectedCategory = "todos",
   onOpenProject,
 }) {
+  const navigate = useNavigate();
   const content = PROJECTS_CONTENT[lang] || PROJECTS_CONTENT.pt;
 
   const visibleProjects = PROJECTS_BASE.filter(
     (project) =>
       selectedCategory === "todos" || project.category === selectedCategory,
   );
+
+  const handleSelectProject = (slug) => {
+    if (typeof onOpenProject === "function") {
+      onOpenProject(slug);
+      return;
+    }
+
+    navigate(`/projeto/${slug}`, {
+      state: { scrollTo: `proj-${slug}` },
+    });
+  };
 
   if (visibleProjects.length === 0) {
     return (
@@ -56,6 +69,7 @@ function ProjectSection({
           return (
             <article
               key={project.slug}
+              id={`proj-${project.slug}`}
               className={`${Style.card} ${
                 project.confidential ? Style.cardConfidential : ""
               } ${isHighlighted ? Style.cardHighlighted : ""} ${
@@ -110,7 +124,7 @@ function ProjectSection({
                 ) : (
                   <button
                     type="button"
-                    onClick={() => onOpenProject?.(project.slug)}
+                    onClick={() => handleSelectProject(project.slug)}
                     className={Style.actionBtn}
                   >
                     <span>{content.actionBtn}</span>

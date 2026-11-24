@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import AboutSection from "../components/sections/AboutSection";
 import HeroSection from "../components/sections/HeroSection";
@@ -7,13 +7,14 @@ import ProjectsSection from "../components/sections/ProjectsSection";
 import StackSection from "../components/sections/StackSection";
 import ExperienceSection from "../components/sections/ExperienceSection";
 import SectionBanner from "../components/sections/SectionBanner";
-import { PROJECTS_CONTENT } from "../data/Project";
-import { EXPERIENCE_CONTENT } from "../data/Experience";
-import { ABOUT_CONTENT } from "../data/About";
+import { PROJECTS_CONTENT } from "../data/ProjectData";
+import { EXPERIENCE_CONTENT } from "../data/ExperienceData";
+import { ABOUT_CONTENT } from "../data/AboutData";
 
 function Home() {
   const { lang } = useLanguage();
   const location = useLocation();
+  const navigate = useNavigate();
   const [selectedTech, setSelectedTech] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("todos");
 
@@ -25,12 +26,21 @@ function Home() {
     const targetId = location.state?.scrollTo;
     if (!targetId) return;
 
-    const el = document.getElementById(targetId);
+    const el =
+      document.getElementById(targetId) ||
+      (targetId.startsWith("exp-")
+        ? document.getElementById("Experiencia")
+        : targetId.startsWith("proj-")
+          ? document.getElementById("Projetos")
+          : null);
+
     if (el) {
       const y = el.getBoundingClientRect().top + window.scrollY - 140;
       window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
     }
-  }, [location.state]);
+
+    navigate(location.pathname, { replace: true, state: {} });
+  }, [location, navigate]);
 
   return (
     <main>

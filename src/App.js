@@ -5,7 +5,7 @@ import { LanguageProvider } from "./context/LanguageContext";
 import NavbarSection from "./components/navbar/NavbarSection";
 import Home from "./pages/Home";
 import ExperienceDetails from "./pages/ExperienceDetails";
-import ProjectsDetails from "./pages/ProjectsDetails";
+import ProjectDetails from "./pages/ProjectDetails";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
                 path="/experiencia/:slug"
                 element={<ExperienceDetails />}
               />
-              <Route path="/projeto/:slug" element={<ProjectsDetails />} />
+              <Route path="/projeto/:slug" element={<ProjectDetails />} />
             </Routes>
           </BrowserRouter>
         </div>

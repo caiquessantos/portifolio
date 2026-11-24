@@ -48,8 +48,8 @@
   padding: 0.3em 0.65em;
   border-radius: 0.45rem;
   border: 0.125rem solid var(--border-ink);
-  background-color: var(--bg-card);
-  color: var(--primary);
+  background-color: var(--ink-main);
+  color: var(--bg-card);
 }
 
 .subCardTitle {
@@ -80,18 +80,22 @@
   padding: clamp(0.95rem, 1.8vw, 1.25rem);
   border-radius: 0.875rem;
   border: 0.125rem dashed var(--border-ink);
+  border-left: 0.35rem solid var(--primary);
   background-color: var(--bg-surface);
 }
 
 .dashedLabel {
-  display: block;
+  display: inline-block;
   font-family: "JetBrains Mono", monospace;
-  font-size: clamp(0.8rem, calc(0.74rem + 0.22vw), 0.92rem);
+  font-size: clamp(0.78rem, calc(0.72rem + 0.22vw), 0.9rem);
   font-weight: 700;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: var(--primary);
-  margin-bottom: 0.4rem;
+  padding: 0.25em 0.6em;
+  border-radius: 0.4rem;
+  background-color: var(--primary);
+  color: var(--pill-text);
+  margin-bottom: 0.55rem;
 }
 
 .dashedText {
@@ -130,9 +134,9 @@
   border-top: 0.125rem solid var(--border-ink);
   font-family: "JetBrains Mono", monospace;
   font-size: clamp(0.8rem, calc(0.74rem + 0.2vw), 0.9rem);
-  font-weight: var(--text-body-weight);
+  font-weight: 700;
   line-height: 1.45;
-  color: var(--ink-muted);
+  color: var(--ink-main);
 }
 
 .contactsWrap {
