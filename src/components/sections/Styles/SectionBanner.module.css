@@ -1,6 +1,6 @@
 .banner {
   width: 100%;
-  margin-top: clamp(2rem, 1vw, 1.375rem);
+  margin-top: clamp(1.5rem, 2.5vw, 2.25rem);
   background-color: var(--bg-surface);
   border: 0.125rem solid var(--border-ink);
   box-shadow: 0.25rem 0.25rem 0 var(--shadow-alt);
@@ -18,27 +18,36 @@
 
 .textContent {
   flex: 1 1 20rem;
-  max-width: 38rem;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: clamp(0.45rem, 1vw, 0.65rem);
 }
 
+.textContentFull {
+  max-width: 100%;
+}
+
+.textContentWithArt {
+  max-width: 38rem;
+}
+
 .stepBadge {
   font-family: "Silkscreen", monospace;
   letter-spacing: -0.02em;
-  font-size: clamp(0.58rem, calc(0.5rem + 0.25vw), 0.7rem);
+  font-size: clamp(0.6rem, calc(0.52rem + 0.25vw), 0.72rem);
   font-weight: 700;
   padding: 0.35em 0.75em;
   border-radius: 0.45rem;
-  border: 0.1rem solid var(--border-ink);
+  border: 0.125rem solid var(--border-ink);
   background-color: var(--bg-card);
   color: var(--ink-main);
 }
 
 .title {
   margin: 0;
+  width: 100%;
   font-weight: 800;
   font-size: clamp(1.35rem, calc(1.05rem + 1.2vw), 2rem);
   line-height: 1.2;
@@ -47,8 +56,10 @@
 
 .subtitle {
   margin: 0;
-  font-size: clamp(0.875rem, calc(0.8rem + 0.3vw), 1.02rem);
-  line-height: 1.6;
+  width: 100%;
+  font-size: clamp(0.9rem, calc(0.82rem + 0.3vw), 1.06rem);
+  font-weight: var(--text-body-weight);
+  line-height: 1.62;
   color: var(--ink-body);
 }
 

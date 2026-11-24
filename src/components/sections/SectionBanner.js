@@ -11,11 +11,13 @@ function SectionBanner({
   subtitleEnd = "",
   children,
 }) {
+  const hasArt = Boolean(children);
+
   return (
     <div className={Style.banner}>
       <div
         className={`${Style.textContent} ${
-          children ? Style.textContentWithArt : ""
+          hasArt ? Style.textContentWithArt : Style.textContentFull
         }`}
       >
         <span className={Style.stepBadge}>{stepBadge}</span>
@@ -33,7 +35,7 @@ function SectionBanner({
         </p>
       </div>
 
-      {children && <div className={Style.artSlot}>{children}</div>}
+      {hasArt && <div className={Style.artSlot}>{children}</div>}
     </div>
   );
 }

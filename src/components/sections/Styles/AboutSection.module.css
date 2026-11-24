@@ -1,0 +1,147 @@
+.box {
+  background-color: var(--bg-card);
+  border: 0.125rem solid var(--border-ink);
+  border-radius: 1rem;
+  padding: clamp(1.1rem, 2.4vw, 1.75rem);
+  box-shadow: 0.25rem 0.25rem 0 var(--shadow-main);
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2vw, 1.375rem);
+}
+
+.mainLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+  gap: clamp(1rem, 2vw, 1.5rem);
+  align-items: start;
+}
+
+.mainLayoutSingle {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.cardsGrid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  gap: clamp(0.9rem, 1.8vw, 1.25rem);
+}
+
+.subCard {
+  background-color: var(--bg-surface);
+  border: 0.125rem solid var(--border-ink);
+  box-shadow: 0.2rem 0.2rem 0 var(--border-ink);
+  border-radius: 0.875rem;
+  padding: clamp(1rem, 2vw, 1.35rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(0.55rem, 1.1vw, 0.75rem);
+}
+
+.subCardBadge {
+  font-family: "Silkscreen", monospace;
+  letter-spacing: -0.02em;
+  font-size: clamp(0.72rem, calc(0.66rem + 0.22vw), 0.84rem);
+  font-weight: 700;
+  padding: 0.3em 0.65em;
+  border-radius: 0.45rem;
+  border: 0.125rem solid var(--border-ink);
+  background-color: var(--bg-card);
+  color: var(--primary);
+}
+
+.subCardTitle {
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(1.12rem, calc(1rem + 0.45vw), 1.34rem);
+  line-height: 1.25;
+  color: var(--ink-main);
+}
+
+.subCardBody {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.65rem, 1.3vw, 0.85rem);
+}
+
+.paragraph {
+  margin: 0;
+  width: 100%;
+  font-size: var(--text-body-size);
+  font-weight: var(--text-body-weight);
+  line-height: var(--text-line-height);
+  color: var(--ink-body);
+}
+
+.dashedBox {
+  width: 100%;
+  padding: clamp(0.95rem, 1.8vw, 1.25rem);
+  border-radius: 0.875rem;
+  border: 0.125rem dashed var(--border-ink);
+  background-color: var(--bg-surface);
+}
+
+.dashedLabel {
+  display: block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: clamp(0.8rem, calc(0.74rem + 0.22vw), 0.92rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.4rem;
+}
+
+.dashedText {
+  margin: 0;
+  width: 100%;
+  font-size: var(--text-body-size);
+  font-weight: var(--text-body-weight);
+  line-height: var(--text-line-height);
+  color: var(--ink-body);
+}
+
+.sideCol {
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
+.spriteCard {
+  width: 100%;
+  max-width: 20rem;
+  padding: clamp(1rem, 2vw, 1.25rem);
+  border-radius: 1rem;
+  border: 0.125rem solid var(--border-ink);
+  background-color: var(--bg-surface);
+  box-shadow: 0.25rem 0.25rem 0 var(--shadow-alt);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.spriteQuote {
+  margin: 0.85rem 0 0 0;
+  padding-top: 0.75rem;
+  width: 100%;
+  border-top: 0.125rem solid var(--border-ink);
+  font-family: "JetBrains Mono", monospace;
+  font-size: clamp(0.8rem, calc(0.74rem + 0.2vw), 0.9rem);
+  font-weight: var(--text-body-weight);
+  line-height: 1.45;
+  color: var(--ink-muted);
+}
+
+.contactsWrap {
+  padding-top: clamp(1rem, 2vw, 1.25rem);
+  border-top: 0.125rem solid var(--border-ink);
+}
+
+@media (max-width: 900px) {
+  .mainLayout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

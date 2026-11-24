@@ -7,7 +7,7 @@
   margin: 0;
   font-family: "Silkscreen", monospace;
   letter-spacing: -0.02em;
-  font-size: clamp(0.65rem, calc(0.55rem + 0.3vw), 0.8rem);
+  font-size: clamp(0.84rem, calc(0.76rem + 0.25vw), 0.98rem);
   font-weight: 700;
   text-transform: uppercase;
   color: var(--primary);
@@ -32,7 +32,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: clamp(0.45rem, 1vw, 0.65rem);
+  gap: clamp(0.5rem, 1vw, 0.7rem);
 }
 
 .categoryGroup + .categoryGroup {
@@ -52,20 +52,20 @@
 .categoryTitle {
   margin: 0;
   font-family: "JetBrains Mono", monospace;
-  font-size: clamp(0.72rem, calc(0.66rem + 0.25vw), 0.85rem);
+  font-size: clamp(0.9rem, calc(0.84rem + 0.22vw), 1.02rem);
   font-weight: 700;
 }
 
 .clearBtn {
   margin-left: auto;
-  padding: clamp(0.25rem, 0.5vw, 0.35rem) clamp(0.55rem, 1.1vw, 0.75rem);
+  padding: clamp(0.32rem, 0.55vw, 0.42rem) clamp(0.65rem, 1.1vw, 0.85rem);
   border-radius: 0.5rem;
   border: 0.125rem solid var(--border-ink);
   box-shadow: 0.125rem 0.125rem 0 var(--border-ink);
   background-color: var(--bg-surface);
   color: var(--primary);
   font-family: "JetBrains Mono", monospace;
-  font-size: clamp(0.68rem, calc(0.62rem + 0.25vw), 0.78rem);
+  font-size: clamp(0.82rem, calc(0.76rem + 0.2vw), 0.92rem);
   font-weight: 700;
   cursor: pointer;
   white-space: nowrap;
@@ -104,7 +104,7 @@
 .stack_category {
   margin: 0;
   font-family: "JetBrains Mono", monospace;
-  font-size: clamp(0.72rem, calc(0.66rem + 0.25vw), 0.85rem);
+  font-size: clamp(0.9rem, calc(0.84rem + 0.22vw), 1.02rem);
   font-weight: 700;
 }
 
@@ -112,14 +112,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(0.35rem, 0.7vw, 0.45rem) clamp(0.65rem, 1.4vw, 0.9rem);
+  padding: clamp(0.42rem, 0.75vw, 0.52rem) clamp(0.75rem, 1.4vw, 1rem);
   border-radius: 0.65rem;
   border: 0.125rem solid var(--border-ink);
   box-shadow: 0.15rem 0.15rem 0 var(--border-ink);
   background-color: var(--bg-surface);
   color: var(--ink-main);
   font-family: "JetBrains Mono", monospace;
-  font-size: clamp(0.72rem, calc(0.66rem + 0.25vw), 0.85rem);
+  font-size: clamp(0.86rem, calc(0.8rem + 0.22vw), 0.98rem);
   font-weight: 700;
   cursor: pointer;
   white-space: nowrap;

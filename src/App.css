@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Silkscreen:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Silkscreen:wght@400;700&display=swap");
 
 :root {
   /* Paleta Padrão: Papel Pastel */
@@ -16,22 +16,28 @@
   --shadow-alt: #2f5d8a;
   --dot-grid: rgba(17, 17, 17, 0.08);
   --pill-text: #ffffff;
+
+  /* Tipografia fluida padrão */
+  --text-body-size: clamp(0.92rem, calc(0.84rem + 0.32vw), 1.08rem);
+  --text-body-weight: 500;
+  --text-line-height: 1.68;
+  --text-measure: 75ch;
 }
 
 [data-theme="menta"] {
-  --bg-base: #eff5f4;
-  --bg-surface: #dce9e6;
+  --bg-base: #e3efec;
+  --bg-surface: #d1e3df;
   --bg-card: #ffffff;
   --ink-main: #0f1415;
   --ink-body: #0f1415;
-  --ink-muted: #3d5255;
+  --ink-muted: #374c4f;
   --primary: #276b60;
   --secondary: #9a6715;
   --accent: #2f5d8a;
   --border-ink: #0f1415;
   --shadow-main: #276b60;
   --shadow-alt: #9a6715;
-  --dot-grid: rgba(15, 20, 21, 0.08);
+  --dot-grid: rgba(15, 20, 21, 0.09);
   --pill-text: #ffffff;
 }
 
@@ -52,6 +58,23 @@
   --pill-text: #14121a;
 }
 
+[data-theme="lavanda"] {
+  --bg-base: #e7dff3;
+  --bg-surface: #d7cbe9;
+  --bg-card: #f5f0fc;
+  --ink-main: #1a1523;
+  --ink-body: #1a1523;
+  --ink-muted: #4b3f5c;
+  --primary: #5e3a8c;
+  --secondary: #9c5244;
+  --accent: #2c6670;
+  --border-ink: #1a1523;
+  --shadow-main: #5e3a8c;
+  --shadow-alt: #9c5244;
+  --dot-grid: rgba(26, 21, 35, 0.09);
+  --pill-text: #ffffff;
+}
+
 *,
 *::before,
 *::after {
@@ -67,8 +90,11 @@ body {
   overflow-x: hidden;
   background-color: var(--bg-base);
   color: var(--ink-main);
-  background-image: radial-gradient(var(--dot-grid) 1px, transparent 1px);
-  background-size: 18px 18px;
+  background-image: radial-gradient(
+    var(--dot-grid) 0.0625rem,
+    transparent 0.0625rem
+  );
+  background-size: 1.125rem 1.125rem;
   font-family:
     "Plus Jakarta Sans",
     system-ui,
@@ -80,7 +106,7 @@ body {
 }
 
 .App {
-  padding-top: clamp(106px, 12vw, 122px);
+  padding-top: clamp(6.625rem, 12vw, 7.625rem);
 }
 
 .font-pixel {

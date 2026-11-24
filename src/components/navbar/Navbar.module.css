@@ -4,37 +4,47 @@
   left: 0;
   width: 100%;
   z-index: 50;
-  background-color: #fffdf9;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  background-color: var(--bg-card);
+  box-shadow: 0 0.25rem 0.875rem rgba(0, 0, 0, 0.12);
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .topBar {
   width: 100%;
-  background-color: #14121a;
-  border-bottom: 1px solid #363144;
-  color: #f7f4fc;
-  padding: clamp(5px, 0.8vw, 8px) clamp(8px, 2vw, 24px);
+  background-color: var(--bg-surface);
+  border-bottom: 0.125rem solid var(--border-ink);
+  color: var(--ink-main);
+  padding: clamp(0.4rem, 0.9vw, 0.6rem) clamp(0.65rem, 2vw, 1.5rem);
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
+  gap: 0.45rem 0.75rem;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .brandGroup {
   display: flex;
   align-items: center;
-  gap: clamp(5px, 0.8vw, 8px);
+  gap: clamp(0.35rem, 0.8vw, 0.55rem);
+  flex-shrink: 0;
 }
 
 .brandBadge {
-  width: clamp(18px, 2.2vw, 22px);
-  height: clamp(18px, 2.2vw, 22px);
-  border-radius: 4px;
-  background-color: #b84a32;
-  color: #ffffff;
+  width: clamp(1.3rem, 2.2vw, 1.55rem);
+  height: clamp(1.3rem, 2.2vw, 1.55rem);
+  border-radius: 0.35rem;
+  border: 0.125rem solid var(--border-ink);
+  background-color: var(--primary);
+  color: var(--pill-text);
   font-family: "Silkscreen", monospace;
   letter-spacing: -0.02em;
-  font-size: clamp(9px, 1.2vw, 11px);
+  font-size: clamp(0.68rem, 1.2vw, 0.8rem);
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -43,78 +53,128 @@
 
 .brandName {
   font-weight: 800;
-  font-size: clamp(12px, calc(10.5px + 0.35vw), 15px);
+  font-size: clamp(0.88rem, calc(0.78rem + 0.35vw), 1.05rem);
   letter-spacing: -0.02em;
-  color: #f7f4fc;
+  color: var(--ink-main);
+}
+
+.topActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(0.35rem, 0.9vw, 0.65rem);
+  min-width: 0;
 }
 
 .paletteGroup {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: clamp(3px, 0.8vw, 6px);
+  gap: clamp(0.3rem, 0.7vw, 0.5rem);
+  min-width: 0;
 }
 
 .palBtn {
   font-family: "JetBrains Mono", monospace;
-  font-size: clamp(9.5px, calc(8.5px + 0.3vw), 12px);
-  font-weight: 500;
-  padding: clamp(3px, 0.5vw, 5px) clamp(6px, 1vw, 10px);
-  border-radius: 5px;
-  border: none;
-  background-color: #262230;
-  color: #f7f4fc;
-  display: flex;
+  font-size: clamp(0.72rem, calc(0.66rem + 0.22vw), 0.84rem);
+  font-weight: 700;
+  padding: clamp(0.26rem, 0.5vw, 0.38rem) clamp(0.5rem, 0.9vw, 0.72rem);
+  border-radius: 0.45rem;
+  border: 0.125rem solid var(--border-ink);
+  background-color: var(--bg-card);
+  color: var(--ink-main);
+  display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 0.35rem;
   cursor: pointer;
   white-space: nowrap;
   transition:
     background-color 0.15s ease,
-    color 0.15s ease;
+    color 0.15s ease,
+    border-color 0.15s ease,
+    filter 0.15s ease;
 }
 
 .palBtn:hover {
-  background-color: #363144;
+  filter: brightness(0.95);
 }
 
 .palBtnActive {
-  background-color: #f08b73;
-  color: #14121a;
-  font-weight: 700;
+  background-color: var(--primary);
+  color: var(--pill-text);
 }
 
 .palBtnActive:hover {
-  background-color: #f08b73;
+  filter: none;
 }
 
 .palDot {
-  width: 6px;
-  height: 6px;
+  width: 0.48rem;
+  height: 0.48rem;
   border-radius: 50%;
+  border: 0.0625rem solid var(--border-ink);
   flex-shrink: 0;
+}
+
+.langGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  flex-shrink: 0;
+}
+
+.langBtn {
+  font-family: "Silkscreen", monospace;
+  font-size: clamp(0.68rem, calc(0.62rem + 0.2vw), 0.8rem);
+  font-weight: 700;
+  padding: clamp(0.26rem, 0.5vw, 0.38rem) clamp(0.45rem, 0.8vw, 0.65rem);
+  border-radius: 0.45rem;
+  border: 0.125rem solid var(--border-ink);
+  background-color: var(--bg-card);
+  color: var(--ink-main);
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    filter 0.15s ease;
+}
+
+.langBtn:hover {
+  filter: brightness(0.95);
+}
+
+.langBtnActive {
+  background-color: var(--primary);
+  color: var(--pill-text);
+}
+
+.langBtnActive:hover {
+  filter: none;
 }
 
 .navContainer {
   width: 100%;
-  max-width: 1024px;
+  max-width: 64rem;
   margin: 0 auto;
-  padding: clamp(6px, 0.8vw, 10px) clamp(6px, 2vw, 24px);
+  padding: clamp(0.4rem, 0.8vw, 0.65rem) clamp(0.5rem, 2vw, 1.5rem);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(3px, 1vw, 14px);
+  gap: clamp(0.25rem, 1vw, 0.875rem);
 }
 
 .navBtn {
-  padding: clamp(7px, 0.8vw, 10px) clamp(7px, 1.6vw, 22px);
-  border-radius: clamp(6px, 1vw, 10px);
+  padding: clamp(0.45rem, 0.8vw, 0.65rem) clamp(0.5rem, 1.6vw, 1.375rem);
+  border-radius: clamp(0.45rem, 1vw, 0.65rem);
   font-family: inherit;
-  font-size: clamp(11.5px, calc(10px + 0.45vw), 16px);
+  font-size: clamp(0.78rem, calc(0.7rem + 0.38vw), 1rem);
   font-weight: 700;
   text-align: center;
   background-color: transparent;
-  color: #111111;
-  border: 2px solid transparent;
+  color: var(--ink-main);
+  border: 0.125rem solid transparent;
   cursor: pointer;
   white-space: nowrap;
   transition:
@@ -124,29 +184,54 @@
 }
 
 .navBtn:hover {
-  background-color: #ece2d2;
+  background-color: var(--bg-surface);
 }
 
 .navBtnActive {
-  background-color: #b84a32;
-  color: #ffffff;
-  border-color: #111111;
+  background-color: var(--primary);
+  color: var(--pill-text);
+  border-color: var(--border-ink);
 }
 
 .navBtnActive:hover {
-  background-color: #b84a32;
+  background-color: var(--primary);
 }
 
 .progressTrack {
   width: 100%;
-  height: clamp(6px, 1.2vw, 10px);
-  background-color: #ece2d2;
-  border-top: 2px solid #111111;
+  height: clamp(0.4rem, 1.1vw, 0.625rem);
+  background-color: var(--bg-surface);
+  border-top: 0.125rem solid var(--border-ink);
   overflow: hidden;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .progressFill {
   height: 100%;
   width: 0%;
-  background-color: #b84a32;
+  background-color: var(--primary);
+  transition: background-color 0.3s ease;
+}
+
+@media (max-width: 680px) {
+  .brandGroup {
+    order: 1;
+  }
+
+  .topActions {
+    display: contents;
+  }
+
+  .langGroup {
+    order: 2;
+    margin-left: auto;
+  }
+
+  .paletteGroup {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
 }

@@ -43,6 +43,21 @@ function ContactsSection({ lang = "pt" }) {
             );
           }
 
+          if (contact.downloadUrl) {
+            return (
+              <a
+                key={contact.id}
+                id={contact.id}
+                href={contact.downloadUrl}
+                download={contact.downloadName}
+                onClick={() => setActiveId(contact.id)}
+                className={btnClass}
+              >
+                {content.downloadResume}
+              </a>
+            );
+          }
+
           return (
             <button
               key={contact.id}

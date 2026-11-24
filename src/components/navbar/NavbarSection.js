@@ -1,26 +1,21 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useTheme } from "../../context/ThemeContext";
+import { useLanguage } from "../../context/LanguageContext";
+import { NAVBAR_CONTENT, NAVBAR_LANGUAGES } from "../../data/Navbar";
 import styles from "./Navbar.module.css";
 
-const NAV_ITEMS = [
-  { id: "Inicio", label: "Início" },
-  { id: "Stack", label: "Stack" },
-  { id: "Projetos", label: "Projetos" },
-  { id: "Experiencia", label: "Experiência" },
-  { id: "Sobre", label: "Sobre" },
-];
-
-const NAV_PALETTES = [
-  { id: "Padrao", label: "Padrão", dot: "#B84A32" },
-  { id: "Menta", label: "Menta", dot: "#276B60" },
-  { id: "Escuro", label: "Escuro", dot: "#F08B73" },
-];
-
-function Navbar() {
+function NavbarSection() {
   const navigate = useNavigate();
   const location = useLocation();
+  const { theme, setTheme } = useTheme();
+  const { lang, setLang } = useLanguage();
   const [activeSection, setActiveSection] = useState("Inicio");
   const progressFillRef = useRef(null);
+
+  const content = NAVBAR_CONTENT[lang] || NAVBAR_CONTENT.pt;
+  const navItems = content.navItems;
+  const palettes = content.palettes;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,7 +44,7 @@ function Navbar() {
       }
 
       let current = "Inicio";
-      for (const item of NAV_ITEMS) {
+      for (const item of navItems) {
         const el = document.getElementById(item.id);
         if (el && el.getBoundingClientRect().top <= 180) {
           current = item.id;
@@ -67,7 +62,7 @@ function Navbar() {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
     };
-  }, [location.pathname]);
+  }, [location.pathname, navItems]);
 
   const handleNavClick = (sectionId) => {
     setActiveSection(sectionId);
@@ -89,34 +84,59 @@ function Navbar() {
       <div className={styles.topBar}>
         <div className={styles.brandGroup}>
           <span className={styles.brandBadge}>C.</span>
-          <span className={styles.brandName}>caíque.dev</span>
+          <span className={styles.brandName}>{content.brandName}</span>
         </div>
 
-        <div className={styles.paletteGroup}>
-          {NAV_PALETTES.map((palette) => {
-            const isSelected = palette.id === "Padrao";
+        <div className={styles.topActions}>
+          <div className={styles.paletteGroup}>
+            {palettes.map((palette) => {
+              const isSelected = theme === palette.id;
 
-            return (
-              <button
-                key={palette.id}
-                type="button"
-                className={`${styles.palBtn} ${
-                  isSelected ? styles.palBtnActive : ""
-                }`}
-              >
-                <span
-                  className={styles.palDot}
-                  style={{ backgroundColor: palette.dot }}
-                />
-                <span>{palette.label}</span>
-              </button>
-            );
-          })}
+              return (
+                <button
+                  key={palette.id}
+                  type="button"
+                  onClick={() => setTheme(palette.id)}
+                  aria-pressed={isSelected}
+                  className={`${styles.palBtn} ${
+                    isSelected ? styles.palBtnActive : ""
+                  }`}
+                >
+                  <span
+                    className={styles.palDot}
+                    style={{ backgroundColor: palette.dot }}
+                  />
+                  <span>{palette.label}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          <div className={styles.langGroup} role="group" aria-label="Idioma">
+            {NAVBAR_LANGUAGES.map((item) => {
+              const isSelected = lang === item.id;
+
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => setLang(item.id)}
+                  title={item.title}
+                  aria-pressed={isSelected}
+                  className={`${styles.langBtn} ${
+                    isSelected ? styles.langBtnActive : ""
+                  }`}
+                >
+                  {item.label}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
 
       <nav className={styles.navContainer}>
-        {NAV_ITEMS.map((item) => {
+        {navItems.map((item) => {
           const isActive =
             (location.pathname === "/" && activeSection === item.id) ||
             (location.pathname.startsWith("/experiencia") &&
@@ -146,4 +166,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default NavbarSection;

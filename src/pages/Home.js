@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useLanguage } from "../context/LanguageContext";
 import AboutSection from "../components/sections/AboutSection";
 import HeroSection from "../components/sections/HeroSection";
 import ProjectsSection from "../components/sections/ProjectsSection";
@@ -8,14 +9,17 @@ import ExperienceSection from "../components/sections/ExperienceSection";
 import SectionBanner from "../components/sections/SectionBanner";
 import { PROJECTS_CONTENT } from "../data/Project";
 import { EXPERIENCE_CONTENT } from "../data/Experience";
+import { ABOUT_CONTENT } from "../data/About";
 
-function Home({ lang = "pt" }) {
+function Home() {
+  const { lang } = useLanguage();
   const location = useLocation();
   const [selectedTech, setSelectedTech] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("todos");
 
   const projectContent = PROJECTS_CONTENT[lang] || PROJECTS_CONTENT.pt;
   const expContent = EXPERIENCE_CONTENT[lang] || EXPERIENCE_CONTENT.pt;
+  const aboutContent = ABOUT_CONTENT[lang] || ABOUT_CONTENT.pt;
 
   useEffect(() => {
     const targetId = location.state?.scrollTo;
@@ -32,7 +36,15 @@ function Home({ lang = "pt" }) {
     <main>
       <HeroSection lang={lang} />
 
-      {/* BANNER 02 + FILTRO DE STACK + PROJETOS */}
+      <StackSection
+        lang={lang}
+        selectedTech={selectedTech}
+        onSelectTech={setSelectedTech}
+        selectedCategory={selectedCategory}
+        onSelectCategory={setSelectedCategory}
+      />
+
+      {/* BANNER 02 + PROJETOS */}
       <section id="Projetos" className="container">
         <SectionBanner
           stepBadge={projectContent.stepBadge}
@@ -44,14 +56,6 @@ function Home({ lang = "pt" }) {
           subtitleEnd={projectContent.subtitleEnd}
         />
       </section>
-
-      <StackSection
-        lang={lang}
-        selectedTech={selectedTech}
-        onSelectTech={setSelectedTech}
-        selectedCategory={selectedCategory}
-        onSelectCategory={setSelectedCategory}
-      />
 
       <ProjectsSection
         lang={lang}
@@ -73,6 +77,17 @@ function Home({ lang = "pt" }) {
       </section>
 
       <ExperienceSection lang={lang} selectedTech={selectedTech} />
+
+      {/* BANNER 04 + SOBRE */}
+      <section id="Sobre" className="container">
+        <SectionBanner
+          stepBadge={aboutContent.stepBadge}
+          title={aboutContent.title}
+          subtitleStart={aboutContent.subtitleStart}
+          subtitleHighlight={aboutContent.subtitleHighlight}
+          subtitleEnd={aboutContent.subtitleEnd}
+        />
+      </section>
 
       <AboutSection lang={lang} />
     </main>

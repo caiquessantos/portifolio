@@ -1,20 +1,58 @@
 import React from "react";
 import Contacts from "./ContactsSection";
-function AboutSection() {
+import Style from "./Styles/AboutSection.module.css";
+import { ABOUT_CONTENT } from "../../data/About";
+
+function AboutSection({ lang = "pt", spriteSlot = null }) {
+  const content = ABOUT_CONTENT[lang] || ABOUT_CONTENT.pt;
+  const hasSprite = Boolean(spriteSlot);
+
   return (
-    <div id="Sobre" className="container">
-      Sed vitae sapien Sed vitae sapien at lectus sollicitudin interdum. Nunc
-      malesuada, lectus eget posuere interdum, nulla massa volutpat nibh, id
-      efficitur nulla justo ac sapien. Fusce vulputate sem sit amet ligula
-      consectetur, vitae malesuada lorem porttitor. Pellentesque habitant morbi
-      tristique senectus et netus et malesuada fames ac turpis egestas. Praesent
-      sit amet justo at metus ultrices tincidunt. Cras elementum, neque sed
-      posuere volutpat, turpis libero malesuada risus, quis feugiat odio magna
-      sed nulla. Aenean ut tortor vel erat pellentesque facilisis. Vestibulum
-      consequat lacus vitae sapien tincidunt, sed interdum velit vulputate.
-      Donec id magna ac lorem eleifend malesuada.
-      <Contacts />
-    </div>
+    <section className="container">
+      <div className={Style.box}>
+        <div
+          className={`${Style.mainLayout} ${
+            !hasSprite ? Style.mainLayoutSingle : ""
+          }`}
+        >
+          <div className={Style.cardsGrid}>
+            {content.cards.map((card, index) => (
+              <article key={index} className={Style.subCard}>
+                <span className={Style.subCardBadge}>{card.badge}</span>
+                <h3 className={Style.subCardTitle}>{card.title}</h3>
+                <div className={Style.subCardBody}>
+                  {card.paragraphs.map((paragraph, pIndex) => (
+                    <p key={pIndex} className={Style.paragraph}>
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+
+          {hasSprite && (
+            <aside className={Style.sideCol}>
+              <div className={Style.spriteCard}>
+                {spriteSlot}
+                <p className={Style.spriteQuote}>{content.spriteQuote}</p>
+              </div>
+            </aside>
+          )}
+        </div>
+
+        {content.highlight && (
+          <div className={Style.dashedBox}>
+            <span className={Style.dashedLabel}>{content.highlight.badge}</span>
+            <p className={Style.dashedText}>{content.highlight.text}</p>
+          </div>
+        )}
+
+        <div className={Style.contactsWrap}>
+          <Contacts lang={lang} />
+        </div>
+      </div>
+    </section>
   );
 }
 

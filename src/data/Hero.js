@@ -2,7 +2,7 @@ export const HERO_CONTENT = {
   pt: {
     badge: "Disponível para oportunidades FullStack - BackEnd",
     name: "Caíque Santos Santana",
-    role: "Desenvolvedor FullStack",
+    role: "Desenvolvedor FullStack - BackEnd",
     bioStart: "Construo backends sólidos em ",
     backendStack: "Java, SpringBoot, Spring e Hibernate",
     bioMiddle: " aliados a interfaces leves em ",
