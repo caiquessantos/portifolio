@@ -29,6 +29,7 @@
 }
 
 .subCard {
+  width: 100%;
   background-color: var(--bg-surface);
   border: 0.125rem solid var(--border-ink);
   box-shadow: 0.2rem 0.2rem 0 var(--border-ink);
@@ -147,5 +148,11 @@
 @media (max-width: 900px) {
   .mainLayout {
     grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .dashedBox {
+    margin-top: 0.25rem;
   }
 }

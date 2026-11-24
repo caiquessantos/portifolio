@@ -3,6 +3,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { PROJECTS_BASE } from "../data/ProjectData";
 import { PROJECTS_DETAILS_CONTENT } from "../data/ProjectDetailsData";
+import MobileCardCarousel from "../components/common/MobileCardCarousel";
 import ContactsSection from "../components/sections/ContactsSection";
 import styles from "./styles/ProjectDetails.module.css";
 
@@ -25,7 +26,13 @@ function ProjectDetails() {
 
   const handleBack = () => {
     const targetId = location.state?.scrollTo || `proj-${slug}`;
-    navigate("/", { state: { scrollTo: targetId } });
+    const projectSlug = location.state?.projectSlug || slug;
+    navigate("/", {
+      state: {
+        scrollTo: targetId,
+        projectSlug,
+      },
+    });
   };
 
   const handleScrollTop = () => {
@@ -60,6 +67,22 @@ function ProjectDetails() {
       </main>
     );
   }
+
+  const renderInfoCard = (item) => (
+    <article className={styles.infoCard}>
+      <h3 className={styles.infoCardTitle}>{item.title}</h3>
+      <p className={styles.infoCardDesc}>{item.description}</p>
+    </article>
+  );
+
+  const renderFeatureCard = (feature, index) => (
+    <article className={styles.featureCard}>
+      <div className={styles.featureItem}>
+        <span className={styles.featureMarker}>▸</span>
+        <span className={styles.featureText}>{feature}</span>
+      </div>
+    </article>
+  );
 
   return (
     <main className={styles.page}>
@@ -128,14 +151,22 @@ function ProjectDetails() {
           <h2 className={styles.sectionLabel}>
             {content.sections.architectureLabel}
           </h2>
-          <div className={styles.twoColGrid}>
-            {detailItem.architecture.map((layer, index) => (
-              <article key={index} className={styles.infoCard}>
-                <h3 className={styles.infoCardTitle}>{layer.title}</h3>
-                <p className={styles.infoCardDesc}>{layer.description}</p>
-              </article>
-            ))}
-          </div>
+          <MobileCardCarousel
+            items={detailItem.architecture}
+            renderItem={renderInfoCard}
+            getItemKey={(layer) => layer.title}
+            resetKey={`${currentLang}-${slug}-architecture`}
+            desktopClassName={styles.twoColGrid}
+            prevAriaLabel={
+              currentLang === "en" ? "Previous item" : "Item anterior"
+            }
+            nextAriaLabel={currentLang === "en" ? "Next item" : "Próximo item"}
+            controlsAriaLabel={
+              currentLang === "en"
+                ? "Architecture navigation"
+                : "Navegação da arquitetura"
+            }
+          />
         </section>
       )}
 
@@ -145,14 +176,24 @@ function ProjectDetails() {
           <h2 className={styles.sectionLabel}>
             {content.sections.decisionsLabel}
           </h2>
-          <div className={styles.twoColGrid}>
-            {detailItem.decisions.map((decision, index) => (
-              <article key={index} className={styles.infoCard}>
-                <h3 className={styles.infoCardTitle}>{decision.title}</h3>
-                <p className={styles.infoCardDesc}>{decision.description}</p>
-              </article>
-            ))}
-          </div>
+          <MobileCardCarousel
+            items={detailItem.decisions}
+            renderItem={renderInfoCard}
+            getItemKey={(decision) => decision.title}
+            resetKey={`${currentLang}-${slug}-decisions`}
+            desktopClassName={styles.twoColGrid}
+            prevAriaLabel={
+              currentLang === "en" ? "Previous decision" : "Decisão anterior"
+            }
+            nextAriaLabel={
+              currentLang === "en" ? "Next decision" : "Próxima decisão"
+            }
+            controlsAriaLabel={
+              currentLang === "en"
+                ? "Technical decisions navigation"
+                : "Navegação das decisões técnicas"
+            }
+          />
         </section>
       )}
 
@@ -162,14 +203,22 @@ function ProjectDetails() {
           <h2 className={styles.sectionLabel}>
             {content.sections.featuresLabel}
           </h2>
-          <ul className={styles.featuresList}>
-            {detailItem.features.map((feature, index) => (
-              <li key={index} className={styles.featureItem}>
-                <span className={styles.featureMarker}>▸</span>
-                <span className={styles.featureText}>{feature}</span>
-              </li>
-            ))}
-          </ul>
+          <MobileCardCarousel
+            items={detailItem.features}
+            renderItem={renderFeatureCard}
+            getItemKey={(feature, index) => `${slug}-feat-${index}`}
+            resetKey={`${currentLang}-${slug}-features`}
+            desktopClassName={styles.featuresList}
+            prevAriaLabel={
+              currentLang === "en" ? "Previous item" : "Item anterior"
+            }
+            nextAriaLabel={currentLang === "en" ? "Next item" : "Próximo item"}
+            controlsAriaLabel={
+              currentLang === "en"
+                ? "Features navigation"
+                : "Navegação das entregas e fluxos"
+            }
+          />
         </section>
       )}
 

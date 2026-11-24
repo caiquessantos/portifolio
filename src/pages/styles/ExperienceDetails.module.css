@@ -170,6 +170,7 @@
 }
 
 .metricCard {
+  width: 100%;
   background-color: var(--bg-surface);
   border: 0.125rem solid var(--border-ink);
   box-shadow: 0.18rem 0.18rem 0 var(--border-ink);
@@ -270,6 +271,7 @@
 
 .starCard,
 .infoCard {
+  width: 100%;
   background-color: var(--bg-surface);
   border: 0.125rem solid var(--border-ink);
   box-shadow: 0.18rem 0.18rem 0 var(--border-ink);

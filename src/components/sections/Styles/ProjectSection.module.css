@@ -1,3 +1,66 @@
+.tabsBar {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(0.5rem, 1.1vw, 0.75rem);
+  margin-bottom: clamp(0.9rem, 1.8vw, 1.25rem);
+}
+
+.categoryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: clamp(0.48rem, 0.9vw, 0.6rem) clamp(0.85rem, 1.5vw, 1.1rem);
+  border-radius: 0.75rem;
+  border: 0.125rem solid var(--border-ink);
+  box-shadow: 0.1875rem 0.1875rem 0 var(--border-ink);
+  background-color: var(--primary);
+  color: var(--pill-text);
+  font-family: "JetBrains Mono", monospace;
+  font-size: clamp(0.86rem, calc(0.8rem + 0.22vw), 0.98rem);
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.categoryBtn:hover {
+  transform: translate(-0.0625rem, -0.0625rem);
+  box-shadow: 0.25rem 0.25rem 0 var(--border-ink);
+}
+
+.categoryBtn:active {
+  transform: translate(0.125rem, 0.125rem);
+  box-shadow: 0.0625rem 0.0625rem 0 var(--border-ink);
+}
+
+.categoryBtnActive {
+  background-color: var(--ink-main);
+  color: var(--bg-card);
+  transform: translate(0.0625rem, 0.0625rem);
+  box-shadow: 0.125rem 0.125rem 0 var(--border-ink);
+}
+
+.categoryBtnActive:hover {
+  transform: translate(0.0625rem, 0.0625rem);
+  box-shadow: 0.125rem 0.125rem 0 var(--border-ink);
+}
+
+.tabCount {
+  font-size: 0.85em;
+  padding: 0.12em 0.45em;
+  border-radius: 0.4rem;
+  border: 0.1rem solid var(--border-ink);
+  background-color: var(--bg-surface);
+  color: var(--ink-main);
+}
+
 .emptyBox {
   width: 100%;
   padding: clamp(1.25rem, 2.5vw, 1.75rem);
@@ -25,6 +88,7 @@
 }
 
 .card {
+  width: 100%;
   background-color: var(--bg-card);
   border: 0.125rem solid var(--border-ink);
   box-shadow: 0.25rem 0.25rem 0 var(--shadow-main);
@@ -212,4 +276,14 @@
   font-family: "JetBrains Mono", monospace;
   font-weight: 800;
   color: inherit;
+}
+
+@media (max-width: 768px) {
+  .cardHighlighted {
+    transform: none;
+  }
+
+  .cardDimmed {
+    transform: none;
+  }
 }

@@ -1,11 +1,27 @@
 import React from "react";
 import Contacts from "./ContactsSection";
+import MobileCardCarousel from "../common/MobileCardCarousel";
 import Style from "./Styles/AboutSection.module.css";
 import { ABOUT_CONTENT } from "../../data/AboutData";
 
 function AboutSection({ lang = "pt", spriteSlot = null }) {
   const content = ABOUT_CONTENT[lang] || ABOUT_CONTENT.pt;
+  const cards = content.cards || [];
   const hasSprite = Boolean(spriteSlot);
+
+  const renderCard = (card) => (
+    <article className={Style.subCard}>
+      <span className={Style.subCardBadge}>{card.badge}</span>
+      <h3 className={Style.subCardTitle}>{card.title}</h3>
+      <div className={Style.subCardBody}>
+        {card.paragraphs.map((paragraph, pIndex) => (
+          <p key={pIndex} className={Style.paragraph}>
+            {paragraph}
+          </p>
+        ))}
+      </div>
+    </article>
+  );
 
   return (
     <section className="container">
@@ -15,21 +31,18 @@ function AboutSection({ lang = "pt", spriteSlot = null }) {
             !hasSprite ? Style.mainLayoutSingle : ""
           }`}
         >
-          <div className={Style.cardsGrid}>
-            {content.cards.map((card, index) => (
-              <article key={index} className={Style.subCard}>
-                <span className={Style.subCardBadge}>{card.badge}</span>
-                <h3 className={Style.subCardTitle}>{card.title}</h3>
-                <div className={Style.subCardBody}>
-                  {card.paragraphs.map((paragraph, pIndex) => (
-                    <p key={pIndex} className={Style.paragraph}>
-                      {paragraph}
-                    </p>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
+          <MobileCardCarousel
+            items={cards}
+            renderItem={renderCard}
+            getItemKey={(_, index) => index}
+            resetKey={lang}
+            desktopClassName={Style.cardsGrid}
+            prevAriaLabel={lang === "en" ? "Previous card" : "Card anterior"}
+            nextAriaLabel={lang === "en" ? "Next card" : "Próximo card"}
+            controlsAriaLabel={
+              lang === "en" ? "About cards navigation" : "Navegação dos cards"
+            }
+          />
 
           {hasSprite && (
             <aside className={Style.sideCol}>

@@ -1,0 +1,83 @@
+.controls {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(0.55rem, 1.2vw, 0.85rem);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45em;
+  min-width: 2.75rem;
+  padding: clamp(0.55rem, 1.1vw, 0.7rem) clamp(0.85rem, 1.5vw, 1.1rem);
+  border-radius: 0.75rem;
+  border: 0.125rem solid var(--border-ink);
+  box-shadow: 0.1875rem 0.1875rem 0 var(--border-ink);
+  background-color: var(--primary);
+  color: var(--pill-text);
+  font-family: "JetBrains Mono", monospace;
+  font-size: clamp(0.9rem, calc(0.84rem + 0.22vw), 1rem);
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translate(-0.0625rem, -0.0625rem);
+  box-shadow: 0.25rem 0.25rem 0 var(--border-ink);
+}
+
+.btn:active:not(:disabled) {
+  transform: translate(0.125rem, 0.125rem);
+  box-shadow: 0.0625rem 0.0625rem 0 var(--border-ink);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0.125rem 0.125rem 0 var(--border-ink);
+}
+
+.statusGroup {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+}
+
+.progressTrack {
+  flex: 1;
+  max-width: 12rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  border: 0.125rem solid var(--border-ink);
+  background-color: var(--bg-surface);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background-color: var(--primary);
+  transition: width 0.2s ease;
+}
+
+.counter {
+  flex-shrink: 0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: clamp(0.82rem, calc(0.76rem + 0.2vw), 0.94rem);
+  font-weight: 800;
+  color: var(--ink-main);
+}

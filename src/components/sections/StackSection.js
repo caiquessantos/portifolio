@@ -1,26 +1,16 @@
 import React, { useState } from "react";
 import Style from "./Styles/Stack.module.css";
-import {
-  STACK_GROUPS,
-  CATEGORY_IDS,
-  STACK_CONTENT,
-} from "../../data/StackData";
+import { STACK_GROUPS, STACK_CONTENT } from "../../data/StackData";
 
 function StackSection({
   lang = "pt",
   selectedTech: externalTech,
   onSelectTech,
-  selectedCategory: externalCategory,
-  onSelectCategory,
 }) {
   const [internalTech, setInternalTech] = useState(null);
-  const [internalCategory, setInternalCategory] = useState("todos");
 
   const content = STACK_CONTENT[lang] || STACK_CONTENT.pt;
-
   const selectedTech = externalTech !== undefined ? externalTech : internalTech;
-  const selectedCategory =
-    externalCategory !== undefined ? externalCategory : internalCategory;
 
   const getTechLabel = (tech) =>
     lang === "en" && tech.enLabel ? tech.enLabel : tech.label;
@@ -34,12 +24,6 @@ function StackSection({
   const handleClearTech = () => {
     if (onSelectTech) onSelectTech(null);
     else setInternalTech(null);
-  };
-
-  const handleSelectCategory = (id) => {
-    const next = selectedCategory === id ? "todos" : id;
-    if (onSelectCategory) onSelectCategory(next);
-    else setInternalCategory(next);
   };
 
   const activeTech = STACK_GROUPS.flatMap((s) => s.tecnologias).find(
@@ -89,29 +73,6 @@ function StackSection({
             </div>
           </div>
         ))}
-
-        <div className={Style.stack_categories}>
-          <p className={Style.stack_category}>{content.categoryLabel}</p>
-
-          <div className={Style.techList}>
-            {CATEGORY_IDS.map((categoryId) => {
-              const isActive = selectedCategory === categoryId;
-
-              return (
-                <button
-                  key={categoryId}
-                  type="button"
-                  onClick={() => handleSelectCategory(categoryId)}
-                  className={`${Style.techBtn} ${
-                    isActive ? Style.categoryBtnActive : ""
-                  }`}
-                >
-                  {content.categories[categoryId]}
-                </button>
-              );
-            })}
-          </div>
-        </div>
       </div>
     </div>
   );

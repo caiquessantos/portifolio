@@ -5,6 +5,7 @@ import {
   EXPERIENCE_DETAILS_BASE,
   EXPERIENCE_DETAILS_CONTENT,
 } from "../data/ExperienceDetailsData";
+import MobileCardCarousel from "../components/common/MobileCardCarousel";
 import ContactSection from "../components/sections/ContactsSection";
 import styles from "./styles/ExperienceDetails.module.css";
 
@@ -51,6 +52,30 @@ function ExperienceDetails() {
     );
   }
 
+  const renderMetricCard = (metric) => (
+    <article className={styles.metricCard}>
+      <span className={styles.metricValue}>{metric.value}</span>
+      <span className={styles.metricLabel}>{metric.label}</span>
+    </article>
+  );
+
+  const renderStarCard = (step) => (
+    <article className={styles.starCard}>
+      <div className={styles.starHeader}>
+        <span className={styles.starKey}>{step.key}</span>
+        <h3 className={styles.starTitle}>{step.title}</h3>
+      </div>
+      <p className={styles.starText}>{step.text}</p>
+    </article>
+  );
+
+  const renderInfoCard = (item) => (
+    <article className={styles.infoCard}>
+      <h3 className={styles.infoCardTitle}>{item.title}</h3>
+      <p className={styles.infoCardDesc}>{item.description}</p>
+    </article>
+  );
+
   return (
     <main className={styles.page}>
       <div className={styles.topBar}>
@@ -81,14 +106,24 @@ function ExperienceDetails() {
           <h2 className={styles.sectionLabel}>
             {content.sections.metricsLabel}
           </h2>
-          <div className={styles.metricsGrid}>
-            {detailItem.metrics.map((metric, index) => (
-              <article key={index} className={styles.metricCard}>
-                <span className={styles.metricValue}>{metric.value}</span>
-                <span className={styles.metricLabel}>{metric.label}</span>
-              </article>
-            ))}
-          </div>
+          <MobileCardCarousel
+            items={detailItem.metrics}
+            renderItem={renderMetricCard}
+            getItemKey={(metric) => metric.label}
+            resetKey={`${currentLang}-${slug}-metrics`}
+            desktopClassName={styles.metricsGrid}
+            prevAriaLabel={
+              currentLang === "en" ? "Previous metric" : "Métrica anterior"
+            }
+            nextAriaLabel={
+              currentLang === "en" ? "Next metric" : "Próxima métrica"
+            }
+            controlsAriaLabel={
+              currentLang === "en"
+                ? "Metrics navigation"
+                : "Navegação das métricas"
+            }
+          />
         </section>
       )}
 
@@ -126,17 +161,22 @@ function ExperienceDetails() {
       {detailItem.star?.length > 0 && (
         <section className={styles.sectionBlock}>
           <h2 className={styles.sectionLabel}>{content.sections.starLabel}</h2>
-          <div className={styles.twoColGrid}>
-            {detailItem.star.map((step) => (
-              <article key={step.key} className={styles.starCard}>
-                <div className={styles.starHeader}>
-                  <span className={styles.starKey}>{step.key}</span>
-                  <h3 className={styles.starTitle}>{step.title}</h3>
-                </div>
-                <p className={styles.starText}>{step.text}</p>
-              </article>
-            ))}
-          </div>
+          <MobileCardCarousel
+            items={detailItem.star}
+            renderItem={renderStarCard}
+            getItemKey={(step) => step.key}
+            resetKey={`${currentLang}-${slug}-star`}
+            desktopClassName={styles.twoColGrid}
+            prevAriaLabel={
+              currentLang === "en" ? "Previous step" : "Etapa anterior"
+            }
+            nextAriaLabel={currentLang === "en" ? "Next step" : "Próxima etapa"}
+            controlsAriaLabel={
+              currentLang === "en"
+                ? "STAR method navigation"
+                : "Navegação do método STAR"
+            }
+          />
         </section>
       )}
 
@@ -146,14 +186,24 @@ function ExperienceDetails() {
           <h2 className={styles.sectionLabel}>
             {content.sections.techFrontsLabel}
           </h2>
-          <div className={styles.twoColGrid}>
-            {detailItem.technicalFronts.map((front, index) => (
-              <article key={index} className={styles.infoCard}>
-                <h3 className={styles.infoCardTitle}>{front.title}</h3>
-                <p className={styles.infoCardDesc}>{front.description}</p>
-              </article>
-            ))}
-          </div>
+          <MobileCardCarousel
+            items={detailItem.technicalFronts}
+            renderItem={renderInfoCard}
+            getItemKey={(front) => front.title}
+            resetKey={`${currentLang}-${slug}-fronts`}
+            desktopClassName={styles.twoColGrid}
+            prevAriaLabel={
+              currentLang === "en" ? "Previous front" : "Frente anterior"
+            }
+            nextAriaLabel={
+              currentLang === "en" ? "Next front" : "Próxima frente"
+            }
+            controlsAriaLabel={
+              currentLang === "en"
+                ? "Technical fronts navigation"
+                : "Navegação das frentes técnicas"
+            }
+          />
         </section>
       )}
 
@@ -163,14 +213,22 @@ function ExperienceDetails() {
           <h2 className={styles.sectionLabel}>
             {content.sections.processLabel}
           </h2>
-          <div className={styles.twoColGrid}>
-            {detailItem.leadershipAndProcess.map((item, index) => (
-              <article key={index} className={styles.infoCard}>
-                <h3 className={styles.infoCardTitle}>{item.title}</h3>
-                <p className={styles.infoCardDesc}>{item.description}</p>
-              </article>
-            ))}
-          </div>
+          <MobileCardCarousel
+            items={detailItem.leadershipAndProcess}
+            renderItem={renderInfoCard}
+            getItemKey={(item) => item.title}
+            resetKey={`${currentLang}-${slug}-process`}
+            desktopClassName={styles.twoColGrid}
+            prevAriaLabel={
+              currentLang === "en" ? "Previous item" : "Item anterior"
+            }
+            nextAriaLabel={currentLang === "en" ? "Next item" : "Próximo item"}
+            controlsAriaLabel={
+              currentLang === "en"
+                ? "Engineering and leadership navigation"
+                : "Navegação de engenharia e liderança"
+            }
+          />
         </section>
       )}
 

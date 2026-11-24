@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import AboutSection from "../components/sections/AboutSection";
@@ -16,31 +16,57 @@ function Home() {
   const location = useLocation();
   const navigate = useNavigate();
   const [selectedTech, setSelectedTech] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState("todos");
+  const pendingSectionRef = useRef(null);
 
   const projectContent = PROJECTS_CONTENT[lang] || PROJECTS_CONTENT.pt;
   const expContent = EXPERIENCE_CONTENT[lang] || EXPERIENCE_CONTENT.pt;
   const aboutContent = ABOUT_CONTENT[lang] || ABOUT_CONTENT.pt;
 
   useEffect(() => {
-    const targetId = location.state?.scrollTo;
-    if (!targetId) return;
+    const state = location.state;
+    if (!state?.scrollTo && !state?.projectSlug) return;
 
-    const el =
-      document.getElementById(targetId) ||
-      (targetId.startsWith("exp-")
-        ? document.getElementById("Experiencia")
-        : targetId.startsWith("proj-")
-          ? document.getElementById("Projetos")
-          : null);
-
-    if (el) {
-      const y = el.getBoundingClientRect().top + window.scrollY - 140;
-      window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+    if (state.scrollTo?.startsWith("exp-")) {
+      pendingSectionRef.current = "Experiencia";
+    } else if (state.scrollTo?.startsWith("proj-") || state.projectSlug) {
+      pendingSectionRef.current = "Projetos";
+    } else if (state.scrollTo) {
+      pendingSectionRef.current = state.scrollTo;
     }
 
     navigate(location.pathname, { replace: true, state: {} });
-  }, [location, navigate]);
+  }, [location.state, location.pathname, navigate]);
+
+  useEffect(() => {
+    const sectionId = pendingSectionRef.current;
+    if (!sectionId) return;
+
+    const scrollToSection = () => {
+      const el = document.getElementById(sectionId);
+      if (!el) return false;
+
+      const headerOffset = 140;
+      const top =
+        el.getBoundingClientRect().top + window.scrollY - headerOffset;
+      window.scrollTo({
+        top: Math.max(0, top),
+        behavior: "auto",
+      });
+      return true;
+    };
+
+    const t1 = setTimeout(scrollToSection, 0);
+    const t2 = setTimeout(() => {
+      if (scrollToSection()) {
+        pendingSectionRef.current = null;
+      }
+    }, 150);
+
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, [location.key]);
 
   return (
     <main>
@@ -50,8 +76,6 @@ function Home() {
         lang={lang}
         selectedTech={selectedTech}
         onSelectTech={setSelectedTech}
-        selectedCategory={selectedCategory}
-        onSelectCategory={setSelectedCategory}
       />
 
       {/* BANNER 02 + PROJETOS */}
@@ -67,11 +91,7 @@ function Home() {
         />
       </section>
 
-      <ProjectsSection
-        lang={lang}
-        selectedTech={selectedTech}
-        selectedCategory={selectedCategory}
-      />
+      <ProjectsSection lang={lang} selectedTech={selectedTech} />
 
       {/* BANNER 03 + EXPERIÊNCIAS */}
       <section id="Experiencia" className="container">
